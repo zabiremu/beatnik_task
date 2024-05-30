@@ -14,7 +14,11 @@ const SingIn = () => {
     http
       .post("login", JSON.stringify(user))
       .then((response) => {
+        console.log(response);
         if (response.data.status == true) {
+          sessionStorage.setItem("user", JSON.stringify(response.data.user));
+          sessionStorage.setItem("token", response.data.access_token);
+
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -38,7 +42,7 @@ const SingIn = () => {
         console.log(error);
         const Toast = Swal.mixin({
           toast: true,
-          position: "top-center",
+          position: "top-end",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,

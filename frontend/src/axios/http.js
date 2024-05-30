@@ -5,7 +5,7 @@ const http = axios.create({
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
-  }, // corrected accept to "Accept"
+  },
 });
 
 export default http;
